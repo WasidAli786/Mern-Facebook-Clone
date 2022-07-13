@@ -1,5 +1,4 @@
 import React from "react";
-import { Grid } from "@mui/material";
 import PostCard from "./PostCard";
 import UserSlider from "./UserSlider";
 import {
@@ -30,22 +29,6 @@ const HomeSection = () => {
           <RightSideBar />
         </RightBarStyled>
       </HomeSectionStyled>
-      {/* <Grid container spacing={2} py={4}>
-        <Grid item xs={3}>
-          <LeftSideBar />
-        </Grid>
-        <HomeSectionStyled>
-          <UserSlider />
-          <PostCard />
-          <PostCard />
-          <PostCard />
-          <PostCard />
-          <PostCard />
-        </HomeSectionStyled>
-        <Grid item xs={3}>
-          <LeftSideBar />
-        </Grid>
-      </Grid> */}
     </>
   );
 };

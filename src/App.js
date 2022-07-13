@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeProvider } from "@mui/material";
+import { Box, ThemeProvider } from "@mui/material";
 import { Theme } from "./Config/Theme";
 import NavBar from "./Components/Header/NavBar";
 import { Route, Routes } from "react-router-dom";
@@ -11,10 +11,12 @@ const App = () => {
     <>
       <ThemeProvider theme={Theme}>
         <NavBar />
-        <Routes>
-          <Route path="/login" element={<AuthTabs />} />
-          <Route path="/" element={<HomeSection />} />
-        </Routes>
+        <Box mt={8}>
+          <Routes>
+            <Route path="/login" element={<AuthTabs />} />
+            <Route path="/" element={<HomeSection />} />
+          </Routes>
+        </Box>
       </ThemeProvider>
     </>
   );

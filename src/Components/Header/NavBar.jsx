@@ -6,14 +6,17 @@ import Button from "@mui/material/Button";
 import NavbarDrawer from "./Drawer";
 import { Link } from "react-router-dom";
 import { NavbarBoxStyled } from "./styled";
-import { Fab, IconButton, Stack, Typography } from "@mui/material";
+import { Fab, IconButton, Stack, Tooltip, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import UserMenu from "./UserMenu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import CreateIcon from "@mui/icons-material/Create";
+import PostModal from "../../Container/Home/PostModal";
+import AddIcon from "@mui/icons-material/Add";
 
 const NavBar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -37,7 +40,10 @@ const NavBar = () => {
             </Box>
             <Box sx={{ display: { xs: "none", md: "block" } }}>
               <Stack spacing={2} direction="row" alignItems="center">
-                <Button variant="contained">
+                <Button
+                  variant="contained"
+                  onClick={() => setIsModalOpen(true)}
+                >
                   <CreateIcon /> create a post
                 </Button>
                 <Stack direction="row" alignItems="center">
@@ -64,6 +70,21 @@ const NavBar = () => {
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
       />
+      <PostModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      <Tooltip
+        title="Add Post"
+        sx={{
+          position: "fixed",
+          bottom: 20,
+          left: 20,
+          display: { xs: "block", md: "none" },
+        }}
+        onClick={() => setIsModalOpen(true)}
+      >
+        <Fab color="primary" aria-label="add">
+          <AddIcon />
+        </Fab>
+      </Tooltip>
     </>
   );
 };

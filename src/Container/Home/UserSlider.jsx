@@ -7,6 +7,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/navigation";
+
+// import required modules
+import { Navigation } from "swiper";
 
 const UserSlider = () => {
   return (
@@ -15,14 +19,25 @@ const UserSlider = () => {
         <Box px={4} py={2}>
           <Typography variant="h6">Stories</Typography>
           <Swiper
+            // navigation={true}
+            // modules={[Navigation]}
             slidesPerView={3}
             spaceBetween={20}
             breakpoints={{
               1200: {
                 slidesPerView: 3,
               },
-              992: {
+              768: {
                 slidesPerView: 2,
+              },
+              576: {
+                slidesPerView: 3,
+              },
+              450: {
+                slidesPerView: 2,
+              },
+              0: {
+                slidesPerView: 1,
               },
             }}
             className="mySwiper"

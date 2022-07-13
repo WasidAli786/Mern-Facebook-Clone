@@ -1,7 +1,7 @@
 import { Box, Card, Paper, styled } from "@mui/material";
+import { motion } from "framer-motion";
 
 const HomeSectionStyled = styled(Box)(({ theme }) => ({
-  border: "1px solid red",
   width: "100%",
   display: "flex",
   justifyContent: "space-between",
@@ -93,6 +93,30 @@ const PostStyled = styled(Card)(({ theme }) => ({
   marginTop: "20px",
 }));
 
+const PostModalStyled = styled(motion(Box))(({ theme }) => ({
+  borderRadius: theme.shape.rounded,
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 500,
+  background: "white",
+  zIndex: 999,
+}));
+
+const ImagePreviewModalStyled = styled(Box)({
+  height: "400px",
+  width: "500px",
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  "&>img": {
+    height: "100%",
+    width: "100%",
+  },
+});
+
 export {
   HomeSectionStyled,
   LeftBarStyled,
@@ -103,4 +127,6 @@ export {
   PostStyled,
   LeftBarPaperStyled,
   RightBarPaperStyled,
+  PostModalStyled,
+  ImagePreviewModalStyled,
 };
